@@ -15,6 +15,7 @@ type ShadowBlockProps = {
   rect: ShadowRect
 } & React.HTMLAttributes<HTMLDivElement>
 
+// LH: 貌似是外层定位组件
 export const ShadowBlockDefault: React.FC<ShadowBlockProps & React.RefAttributes<HTMLDivElement>> =
   React.forwardRef<HTMLDivElement, ShadowBlockProps>(({ children, rect, style, ...props }, ref) => (
     <div

@@ -3,12 +3,14 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "packages/plugins/*"
+    "packages/plugins/*",
+    "examples/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
+    "dev:basic": "cd examples/basic && pnpm dev",
     "format": "turbo run format",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",

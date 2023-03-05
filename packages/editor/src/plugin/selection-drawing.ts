@@ -100,8 +100,10 @@ export const SelectionDrawing = {
         rects = [clientRects[clientRects.length - 1]]
       } else {
         rects = [domRange.getBoundingClientRect()]
+        console.log('==isCollapsed==', editor, range, rects);
       }
     } else {
+      console.log('==no.isCollapsed==');
       rects = getLineRectsByRange(editor, range)
     }
 

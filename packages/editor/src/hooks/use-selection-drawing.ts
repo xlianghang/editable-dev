@@ -27,7 +27,8 @@ export const useSelectionDrawingRects = () => {
   const selection = useSelectionDrawingSelection()
   const [rects, setRects] = React.useState<DOMRect[]>([])
   useIsomorphicLayoutEffect(() => {
-    const rects = selection ? SelectionDrawing.toRects(editor, selection) : []
+    const rects = selection ? SelectionDrawing.toRects(editor, selection) : [];
+    console.log('debug:selection', selection);
     EDITOR_TO_SELECTION_RECTS.set(editor, rects)
     setRects(rects)
   }, [editor, selection])

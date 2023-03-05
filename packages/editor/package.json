@@ -2,8 +2,13 @@
   "name": "@editablejs/editor",
   "version": "1.0.1",
   "main": "./dist/index.js",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
+      "dev": {
+        "types": "./src/index.ts",
+        "default": "./src/index.ts"
+      },
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.mjs"

@@ -660,11 +660,11 @@ export const ContentEditable = (props: EditableProps) => {
         <SelectionComponent />
         <InputComponent autoFocus={autoFocus} />
       </ShadowContainer>
-      <TouchPointComponent
+      {/* <TouchPointComponent
         onAnchorTouchStart={handleAnchorTouchPointStart}
         onFocusTouchStart={handleFocusTouchPointStart}
       />
-      {rendered && <Slots />}
+      {rendered && <Slots />} */}
     </div>
   )
 }

@@ -21,8 +21,10 @@ interface CaretProps {
 const CaretComponent: React.FC<CaretProps> = React.memo(({ timeout = 530 }) => {
   const editor = useEditableStatic()
 
-  const [focused] = useFocused()
+  const [focused] = [true]
+  // useFocused()
 
+  console.log('focused', focused);
   const timer = React.useRef<number>()
 
   const ref = React.useRef<HTMLDivElement>(null)
@@ -39,7 +41,9 @@ const CaretComponent: React.FC<CaretProps> = React.memo(({ timeout = 530 }) => {
 
   const rect = React.useMemo(() => {
     if (!selection || rects.length === 0 || !focused || !Range.isCollapsed(selection)) return null
-    return rects[0].toJSON()
+    const rectResult = rects[0].toJSON()
+    console.log('debug:rectResult', rectResult);
+    return rectResult;
   }, [focused, rects, selection])
 
   const clearActive = React.useCallback(() => {
@@ -86,6 +90,7 @@ const CaretComponent: React.FC<CaretProps> = React.memo(({ timeout = 530 }) => {
           ? Object.assign({}, rect, { width: caretWidth, color: caretColor })
           : { width: 0, height: 0, top: 0, left: 0 }
       }
+      data-lh-mark="caret"
       ref={ref}
       style={{ willChange: 'opacity, transform', opacity: rect ? 1 : 0 }}
     />
